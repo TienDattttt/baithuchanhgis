@@ -1,0 +1,2 @@
+tu database -> model cua app -> view
+
