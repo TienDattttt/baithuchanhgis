@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block title %}
+Danh sách nhân viên
+{% endblock %} 
+{% block content %}
+<h1>Danh sách nhân viên</h1>
+<ul>
+  {% for employee in emp %}
+  <li>
+    <a href="{% url 'employee:employee_detail' employee.employee_id %}"
+      >{{ employee.first_name }} {{ employee.last_name }}</a
+    >
+  </li>
+  {% empty %}
+  <li>Không có nhân viên nào.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

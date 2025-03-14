@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block title %}
+Chi tiết nhân viên
+{% endblock %} 
+{% block content %}
+<h1>Chi tiết nhân viên</h1>
+<p><strong>ID:</strong> {{ emp.employee_id }}</p>
+<p><strong>Họ:</strong> {{ emp.first_name }}</p>
+<p><strong>Tên:</strong> {{ emp.last_name }}</p>
+<p><strong>Ngày tạo:</strong> {{ emp.created_at }}</p>
+<p><strong>Ngày cập nhật:</strong> {{ emp.updated_at }}</p>
+<p><strong>Số điện thoại:</strong> {{ emp.phone_number }}</p>
+<p><strong>Địa chỉ:</strong> {{ emp.address }}</p>
+<h3>Dự án tham gia:</h3>
+{% if emp.projects.exists %}
+  <ul>
+    {% for project in emp.projects.all %}
+      <li>{{ project.title }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Nhân viên này chưa tham gia dự án nào.</p>
+{% endif %}
+{% endblock %}
